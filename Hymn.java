@@ -1,9 +1,9 @@
 
 public class Hymn {
 	
-	public int hymnNumber;
+	public Integer hymnNumber;
 	
-	public Hymn(int hymnNumber) {
+	public Hymn(Integer hymnNumber) {
 		this.hymnNumber = hymnNumber;
 	}
 

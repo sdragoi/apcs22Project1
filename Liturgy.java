@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Arrays;
 
 public class Liturgy {
 	
@@ -7,7 +7,7 @@ public class Liturgy {
 	public Hymn hymn2;
 	public Hymn hymn3;
 
-	public static Hymn[] hymnal = new Hymn[1131];
+	private static Hymn[] hymnal = new Hymn[1131];
 	
 	
 	
@@ -43,14 +43,47 @@ public class Liturgy {
 				hymnPool.remove(hymn3.hymnNumber - 57);
 			else
 				hymnPool.remove(hymn3.hymnNumber - 1153);
+	}
+	
+	public static double getProbability(Integer targetDigits, Integer numberOfRuns) { // method that returns probability of targetDigits appearing in a given selection of hymns
+		String targetDigitString = targetDigits.toString();
+		
+		int matches = 0;
+		System.out.println("Matches:");
+		
+		for (int p = 0; p < numberOfRuns; p++) {
+			if (Liturgy.equals(targetDigits, new Liturgy())) {
+				matches ++;
+			}
+		}
+		
+		int totalPossibilities = (int) Math.pow(10, targetDigitString.length());
+		
+		return matches/totalPossibilities;
 		
 	}
 	
-	public static double getProbability(int targetDigits) { // method that returns probability of targetDigits appearing in a given selection of hymns
-		for (int p = 0; p < 100000000; p++) {
-			
-		}
+	private static String liturgyToString(Liturgy testLiturgy) {
+		return testLiturgy.hymn1.hymnNumber.toString() + testLiturgy.hymn2.hymnNumber.toString() + testLiturgy.hymn3.hymnNumber.toString();
+	}
+	
+	public static boolean equals(Integer target, Liturgy liturgy) {
 		
+		String liturgyString = Liturgy.liturgyToString(liturgy);
+		char liturgyArray[] = liturgyString.toCharArray();
+		Arrays.sort(liturgyArray);
+		String targetString = target.toString();
+		char targetArray[] = targetString.toCharArray();
+		Arrays.sort(targetArray);
+		
+		if (Arrays.equals(liturgyArray, targetArray)) {
+			System.out.print("hymn 1: " + liturgy.hymn1.hymnNumber);
+			System.out.print(", hymn 2: " + liturgy.hymn2.hymnNumber);
+			System.out.println(", hymn 3: " + liturgy.hymn2.hymnNumber);
+			return true;
+		}
+		else
+			return false;
 	}
 }
 
