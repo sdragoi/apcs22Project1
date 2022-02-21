@@ -7,13 +7,11 @@ public class Tester {
 		Scanner input = new Scanner(System.in);
 		
 		int runs;
-		do {
-			System.out.print("Please specify either 5, 10, 50, or 100 million runs by inputting 5, 10, 50, or 100. ");
-			if (!(input.nextInt() == 5 || input.nextInt() == 10 || input.nextInt() == 50 || input.nextInt() == 100)) {
-				System.out.println("Not within the specified parameters.");
-			}
+		System.out.print("Please specify either 5, 10, 50, or 100 million runs by inputting 5, 10, 50, or 100. ");
+		if (!(input.nextInt() == 5 || input.nextInt() == 10 || input.nextInt() == 50 || input.nextInt() == 100)) {
+			System.out.println("Not within the specified parameters.");
 		}
-		while (!(input.hasNextInt()));
+
 		
 		runs = input.nextInt();
 		
