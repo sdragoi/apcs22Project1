@@ -82,7 +82,7 @@ public class Liturgy {
 			return false;
 	}
 	
-	public static double getAccuracy() {
+	public static double getAccuracyofMultipleRuns() {
 		
 	}
 }
