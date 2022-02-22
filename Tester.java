@@ -17,17 +17,12 @@ public class Tester {
 				runs = input.nextInt();
 			default:
 				System.out.println("Please enter a valid input.");
-			
+			}
+		}
+		else {
+			System.out.println("INVALID INPUT: Please enter an integer.");
 		}
 		
-		
-		}
-		
-		
-	
-	
-		
-	
 
 		int k = input.nextInt();
 		System.out.println("Your input: " + k);
