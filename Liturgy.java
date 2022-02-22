@@ -11,16 +11,14 @@ public class Liturgy {
 	
 	
 	
-	public static void main(String[] args) { // ok to have main before constructor?
-		
 		for (int i = 57; i < 905; i++) { // populate the hymnal array with Hymn objects
 			hymnal[i - 57] = new Hymn(i);
 		}
 		for (int j = 2001; j < 2284; j++) {
 			hymnal[j - 1153] = new Hymn(j);
 		}
-	}
 	
+		
 	public Liturgy() {
 		ArrayList<Hymn> hymnPool = new ArrayList<Hymn>(); // make ArrayList "hymnPool" for easier manipulation of available hymns
 		
@@ -57,9 +55,7 @@ public class Liturgy {
 			}
 		}
 		
-		int totalPossibilities = (int) Math.pow(10, targetDigitString.length());
-		
-		return matches/totalPossibilities;
+		return matches/numberOfRuns;
 		
 	}
 	
@@ -84,6 +80,10 @@ public class Liturgy {
 		}
 		else
 			return false;
+	}
+	
+	public static double getAccuracy() {
+		
 	}
 }
 
