@@ -4,27 +4,21 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.print("Please specify either 5, 10, 50, or 100 million runs by inputting 5, 10, 50, or 100. ");
+		System.out.print("");
 		
-		Integer runs = null;
+		Scanner input = new Scanner(System.in);
+		int runs;
 		do {
-			Scanner input = new Scanner(System.in);
-			if (input.hasNextInt()) {
-				switch (input.nextInt()){
-				case 5:	
-				case 10:
-				case 50:
-				case 100:
-					runs = input.nextInt();
-				default:
-					System.out.println("Please enter a valid input.");
-				}
-			}
-			else 
-				System.out.println("INVALID INPUT: Please enter an integer.");
-		}
-		while (runs.equals(null));
-
+		    System.out.println("Please specify either 5, 10, 50, or 100 million runs by inputting 5, 10, 50, or 100. ");
+		    while (!input.hasNextInt()) {
+		        System.out.println("Not an integer.");
+		        input.next(); // this is important!
+		    }
+		    runs = input.nextInt();
+		} while (runs <= 0);
+		
+		
+		
 	}
 
 
