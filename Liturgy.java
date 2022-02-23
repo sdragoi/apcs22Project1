@@ -7,16 +7,15 @@ public class Liturgy {
 	public Hymn hymn2;
 	public Hymn hymn3;
 
-	private static Hymn[] hymnal = new Hymn[1131];
+	private static Hymn[] hymnal = new Hymn[1131]; 
 	
-	
-	
+	{
 		for (int i = 57; i < 905; i++) { // populate the hymnal array with Hymn objects
 			hymnal[i - 57] = new Hymn(i);
 		}
 		for (int j = 2001; j < 2284; j++) {
-			hymnal[j - 1153] = new Hymn(j);
-		}
+			hymnal[j - 1153] = new Hymn(j); }
+	}
 	
 		
 	public Liturgy() {
@@ -82,8 +81,18 @@ public class Liturgy {
 			return false;
 	}
 	
-	public static double getAccuracyofMultipleRuns() {
+	public static double getAccuracyofMultipleRuns(Integer targetDigits) {
 		
+		double[] probabilityValues = new double[100];
+		
+		for (int j = 0; j < 100; j++) {
+			probabilityValues[j] = Liturgy.getProbability(targetDigits, 1000000);
+			
+		}
+			
+		
+		double sum;
+		for (int i = 0; i <  )
 	}
 }
 
