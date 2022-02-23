@@ -6,7 +6,7 @@ public class Tester {
 		
 		System.out.print("Please specify either 5, 10, 50, or 100 million runs by inputting 5, 10, 50, or 100. ");
 		
-		Integer runs;
+		Integer runs = null;
 		do {
 			Scanner input = new Scanner(System.in);
 			if (input.hasNextInt()) {
@@ -23,10 +23,9 @@ public class Tester {
 			else 
 				System.out.println("INVALID INPUT: Please enter an integer.");
 		}
-		while (runs.);
+		while (runs.equals(null));
 
 	}
-	
-	Liturgy.getProbability
+
 
 }
