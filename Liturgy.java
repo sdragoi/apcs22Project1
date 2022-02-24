@@ -7,7 +7,7 @@ public class Liturgy {
 	public Hymn hymn2;
 	public Hymn hymn3;
 
-	private static Hymn[] hymnal = new Hymn[1131]; 
+	private static Hymn[] hymnal = new Hymn[1132]; 
 	
 	{
 		for (int i = 57; i < 905; i++) { // populate the hymnal array with Hymn objects
@@ -48,18 +48,18 @@ public class Liturgy {
 		int matches = 0;
 		System.out.println("Matches:");
 		
-		for (int p = 0; p < numberOfRuns; p++) {
+		for (int p = 0; p < numberOfRuns * 1000000; p++) { // 
 			if (Liturgy.equals(targetDigits, new Liturgy())) {
 				matches ++;
 			}
 		}
 		
-		return matches/numberOfRuns;
+		return matches/(numberOfRuns * 1000000);
 		
 	}
 	
 	private static String liturgyToString(Liturgy testLiturgy) {
-		return testLiturgy.hymn1.hymnNumber.toString() + testLiturgy.hymn2.hymnNumber.toString() + testLiturgy.hymn3.hymnNumber.toString();
+		return (testLiturgy.hymn1.hymnNumber.toString() + testLiturgy.hymn2.hymnNumber.toString() + testLiturgy.hymn3.hymnNumber.toString());
 	}
 	
 	public static boolean equals(Integer target, Liturgy liturgy) {
@@ -81,18 +81,30 @@ public class Liturgy {
 			return false;
 	}
 	
-	public static double getAccuracyofMultipleRuns(Integer targetDigits) {
+	public static double getStdDeviationofMultipleRuns(Integer targetDigits) {
 		
 		double[] probabilityValues = new double[100];
 		
-		for (int j = 0; j < 100; j++) {
+		for (int j = 0; j < 100; j++) 
 			probabilityValues[j] = Liturgy.getProbability(targetDigits, 1000000);
-			
-		}
-			
 		
-		double sum;
-		for (int i = 0; i <  )
+			
+		double sumOfProbs = 0;
+		for (int j = 0; j < probabilityValues.length; j++) {
+			sumOfProbs += probabilityValues[j];
+		}
+		
+		double meanOfProbs = sumOfProbs/probabilityValues.length;
+			
+		double sumForStD = 0;
+		for (int i = 0; i < probabilityValues.length; i++) {
+			sumForStD += (Math.pow((probabilityValues[i] - meanOfProbs), 2));
+		}
+		
+		double standardDeviation = Math.sqrt(sumForStD/probabilityValues.length);
+		
+		return standardDeviation;
+			
 	}
 }
 
