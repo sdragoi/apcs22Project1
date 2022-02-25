@@ -1,3 +1,7 @@
+// Stephanie Dragoi, Marton Sharpe
+// 20220225
+// Project #1- Probability Simulation- Liturgy Class
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -26,7 +30,7 @@ public class Liturgy {
 		}
 		
 		hymn1 = hymnPool.get((int)(Math.random() * (hymnPool.size() - 1)));
-			if (hymn1.hymnNumber < 905)  // ok to have non-automatic indents here for readability?
+			if (hymn1.hymnNumber < 905)  
 				hymnPool.remove(hymn1.hymnNumber - 57);
 			else 
 				hymnPool.remove(hymn1.hymnNumber - 1153);
@@ -100,7 +104,6 @@ public class Liturgy {
 			targetString = null;
 			return false;
 		}
-			
 	}
 	
 	public static double getSTDofMultipleRuns(Long targetDigits, int numOfRuns) {
@@ -125,8 +128,7 @@ public class Liturgy {
 		
 		double standardDeviation = Math.sqrt(sumForStD/probabilityValues.length);
 		
-		return standardDeviation;
-			
+		return standardDeviation;		
 	}
 	
 	public static double getMADofMultipleRuns(Long targetDigits, int numOfRuns) {
@@ -146,9 +148,7 @@ public class Liturgy {
 		for (int i = 0; i < probabilityValues.length; i++) 
 			sumForMAD += (Math.abs(probabilityValues[i] - meanOfProbs));
 		
-		return (sumForMAD/(double)probabilityValues.length);
-		
-		
+		return (sumForMAD/(double)probabilityValues.length); 
 	}
 	
 }

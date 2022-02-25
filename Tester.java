@@ -1,3 +1,7 @@
+// Stephanie Dragoi, Marton Sharpe
+// 20220225
+// Project #1- Probability Simulation- Tester Class
+
 import java.util.Scanner;
 
 public class Tester {
@@ -27,12 +31,8 @@ public class Tester {
 			}
 			targetPattern = target.nextLong();
 		} while (targetPattern.toString().length() > 12 || targetPattern.toString().length() < 6);
-		
-			
+
 		System.out.println("Probability of a given Liturgy containing three hymns with the same digits as your pattern: " + Liturgy.getProbability(targetPattern, runs, true));
 		System.out.println("Mean absolute deviation for the simulation with the given target digit pattern and number of runs: " + Liturgy.getMADofMultipleRuns(targetPattern, runs));
-		
 	}
-
-
 }
